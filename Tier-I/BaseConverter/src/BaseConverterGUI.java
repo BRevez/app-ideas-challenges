@@ -87,11 +87,9 @@ public class BaseConverterGUI {
                                      "Allowed Range: " + rangeMsg + "\n" +
                                      "Max length: 8 digits.";
                     
-                    // Mostra o erro na Janela
                     outputArea.setForeground(Color.RED);
                     outputArea.setText(errorText);
                     
-                    // Mostra o erro no Terminal
                     System.err.println("\nERROR: " + errorText.replace("\n", " "));
                     return;
                 }
@@ -121,8 +119,8 @@ public class BaseConverterGUI {
 
     public static String processConversionsToString(String input, String base) {
         StringBuilder sb = new StringBuilder();
-        int radixIn = NumberConverter.getRadix(base);
-        long decimalValue = NumberConverter.parseToDecimal(input, radixIn); 
+        int radixIn = Converter.getRadix(base);
+        long decimalValue = Converter.parseToDecimal(input, radixIn); 
         
         String[] allBases = {"D", "B", "O", "H"};
 
@@ -133,8 +131,8 @@ public class BaseConverterGUI {
         for (String targetBase : allBases) {
             if (targetBase.equalsIgnoreCase(base)) continue; 
 
-            int radixOut = NumberConverter.getRadix(targetBase);
-            String result = NumberConverter.decimalToBase(decimalValue, radixOut);
+            int radixOut = Converter.getRadix(targetBase);
+            String result = Converter.decimalToBase(decimalValue, radixOut);
 
             sb.append("\nBASE ").append(targetBase.toUpperCase()).append(" (").append(radixOut).append(")\n");
 

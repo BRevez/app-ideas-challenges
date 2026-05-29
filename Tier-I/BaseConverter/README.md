@@ -6,6 +6,8 @@ Binary is the number system all digital computers are based on. Therefore, it is
 
 This application has been expanded beyond the core challenge requirements. It not only allows the user to enter strings of up to 8 binary digits to display the decimal equivalent, but it also supports continuous conversions between four numerical systems (Binary, Octal, Decimal, and Hexadecimal) while outputting the mathematical calculation steps to the terminal.
 
+url: https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md
+
 ## Challenge Constraints & Fulfillment
 
 This implementation adheres strictly to the constraints provided by the original challenge:
