@@ -19,7 +19,7 @@ public class BaseConverterGUI {
         topPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // DROPDOWN / LABEL
-        JLabel labelCombo = new JLabel("Select Initial Base:");
+        JLabel labelCombo = new JLabel("Select a Base:");
         labelCombo.setAlignmentX(Component.LEFT_ALIGNMENT);
         String[] bases = {"Binary", "Octal", "Decimal", "Hexadecimal"};
         JComboBox<String> comboBase = new JComboBox<>(bases);
