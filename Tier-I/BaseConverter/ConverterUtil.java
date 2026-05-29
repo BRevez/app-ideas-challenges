@@ -1,4 +1,4 @@
-public class NumberConverter {
+public class ConverterUtil {
 
     public static long parseToDecimal(String input, int base) {
         long result = 0;
@@ -35,6 +35,39 @@ public class NumberConverter {
             case "H": return 16;
             default: return 10;
         }
+    }
+
+    public static boolean isValidForBase(String input, String base) {
+        String regex;
+        String rangeMsg;
+
+        switch (base.toUpperCase()) {
+            case "B":
+                regex = "[01]{1,8}";
+                rangeMsg = "[0-1]";
+                break;
+            case "O":
+                regex = "[0-7]{1,8}";
+                rangeMsg = "[0-7]";
+                break;
+            case "D":
+                regex = "[0-9]{1,8}";
+                rangeMsg = "[0-9]";
+                break;
+            case "H":
+                regex = "(?i)[0-9A-F]{1,8}";
+                rangeMsg = "[0-9, A-F]";
+                break;
+            default:
+                System.out.println("\nInvalid Base!\nBases: B, O, D, H.\n");
+                return false;
+        }
+
+        if (!input.matches(regex)) {
+            System.out.println("\nInvalid Input!\nRange: " + rangeMsg + ".\nMax length: 8 digits.\n");
+            return false;
+        }
+        return true;
     }
 
 }

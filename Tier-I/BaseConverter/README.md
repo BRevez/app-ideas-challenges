@@ -1,4 +1,4 @@
-# Number Base Converter (Bin2Dec Challenge)
+# Base Converter (Bin2Dec Challenge)
 
 **Tier:** 1-Beginner
 

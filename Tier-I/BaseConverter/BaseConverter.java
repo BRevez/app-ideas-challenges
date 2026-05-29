@@ -3,9 +3,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BaseConverterGUI {
+public class BaseConverter {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         // WINDOW
         JFrame frame = new JFrame("Base Converter");
@@ -80,7 +80,7 @@ public class BaseConverterGUI {
                 System.out.println("Initial Base: " + selectedBaseName);
                 System.out.println("Input Value: " + input);
 
-                if (!Validation.isValidForBase(input, base)) {
+                if (!ConverterUtil.isValidForBase(input, base)) {
                     String rangeMsg = getRangeMessage(base);
                     String errorText = "INVALID INPUT!\n" +
                                      "The value '" + input + "' is not valid for " + selectedBaseName + ".\n" +
@@ -119,8 +119,8 @@ public class BaseConverterGUI {
 
     public static String processConversionsToString(String input, String base) {
         StringBuilder sb = new StringBuilder();
-        int radixIn = Converter.getRadix(base);
-        long decimalValue = Converter.parseToDecimal(input, radixIn); 
+        int radixIn = ConverterUtil.getRadix(base);
+        long decimalValue = ConverterUtil.parseToDecimal(input, radixIn); 
         
         String[] allBases = {"D", "B", "O", "H"};
 
@@ -131,8 +131,8 @@ public class BaseConverterGUI {
         for (String targetBase : allBases) {
             if (targetBase.equalsIgnoreCase(base)) continue; 
 
-            int radixOut = Converter.getRadix(targetBase);
-            String result = Converter.decimalToBase(decimalValue, radixOut);
+            int radixOut = ConverterUtil.getRadix(targetBase);
+            String result = ConverterUtil.decimalToBase(decimalValue, radixOut);
 
             sb.append("\nBASE ").append(targetBase.toUpperCase()).append(" (").append(radixOut).append(")\n");
 
